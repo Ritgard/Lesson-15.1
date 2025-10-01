@@ -1,6 +1,5 @@
 ﻿#include <iostream>
 #include <fstream>
-#include <vector> // optional
 #include <string>
 using namespace std;
 
@@ -29,7 +28,7 @@ int main()
 
 	int n;
 	inputFile >> n;
-	inputFile.ignore(10000000, '\n');
+	inputFile.ignore();
 
 	Adress** adresses = new Adress*[n];
 	for (int i{}; i < n; ++i)
@@ -55,11 +54,6 @@ int main()
 	ofstream outputFile("out.txt");
 	if (!outputFile.is_open())
 	{
-		/*for (int i{}; i < n; i++)
-		{
-			delete adresses[i];
-		}
-		delete[] adresses;*/
 		cerr << "Error opening out.txt";
 	}
 	outputFile << n << endl;
